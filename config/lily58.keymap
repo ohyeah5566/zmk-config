@@ -15,14 +15,11 @@
 
         ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "balanced";
             tapping-term-ms = <200>;
-
-            bindings = <
-			    &mo 
-                &kp
-            >;
+            bindings = <&mo>, <&kp>;
+			display-name = "tap-layer";
         };
     };
 };
@@ -47,7 +44,6 @@
                              &kp LALT  &ht 3 LSHFT  &ht 1 BACKSPACE  &trans    &trans  &ht 2 SPACE  &ht 4 ENTER  &sk LSHFT
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
@@ -66,7 +62,6 @@
                            &trans   &trans   &trans   &trans    &trans  &kp N0       &trans  &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         raise_layer {
@@ -85,10 +80,9 @@
                                &trans     &trans    &trans    &trans    &trans  &kp N0        &trans         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
-        layer3 {
+        layer_3 {
             // ------------------------------------------------------------------------------------------------------------
             // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
             // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
@@ -104,7 +98,6 @@
                            &trans   &trans   &trans   &trans    &trans  &trans       &trans     &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         layer_4 {
