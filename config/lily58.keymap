@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: MIT
  */
 
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -46,11 +45,19 @@
 
 / {
     macros {
-        lp: new_macro {
+        lp: lp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp U &kp N4 &kp J &kp O &kp N3 &kp N2 &kp K &kp N7 &kp M &kp A &kp C>;
-            label = "NEW_MACRO";
+            label = "lp";
+        };
+
+        file_path: file_path {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(F1)>, <&macro_wait_time 100>, <&kp N1>;
+
+            label = "file_path";
         };
     };
 
@@ -171,11 +178,11 @@
 
         ide_mac {
             bindings = <
-&trans  &trans         &trans     &trans                 &trans                &trans                            &trans     &trans          &trans             &trans            &trans      &trans
-&trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))        &kp LC(TAB)           &kp LG(LA(L))                     &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
-&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &ide_r_file           &lde_file_path                    &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
-&trans  &trans         &trans     &kp LG(RIGHT_BRACKET)  &kp LG(LEFT_BRACKET)  &trans          &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
-                                  &trans                 &trans                &trans          &trans    &trans  &trans     &trans          &trans
+&trans  &trans         &trans     &trans                 &trans                &trans                           &trans     &trans          &trans             &trans            &trans      &trans
+&trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))        &kp LC(TAB)           &kp LG(LA(L))                    &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &ide_r_file           &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
+&trans  &trans         &trans     &kp LG(RIGHT_BRACKET)  &kp LG(LEFT_BRACKET)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
+                                  &trans                 &trans                &trans         &trans    &trans  &trans     &trans          &trans
             >;
         };
     };
