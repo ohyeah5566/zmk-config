@@ -42,11 +42,11 @@
             display-name = "ide_find_usage";
         };
 
-        ide_r_file: tap_dance2 {
+        ide_r_file: ide_result_file {
             compatible = "zmk,behavior-tap-dance";
             label = "recent_file";
             #binding-cells = <0>;
-            bindings = <&kp LG(E)>, <&kp LS(LSHIFT)>;
+            bindings = <&kp LG(E)>, <&shift_shift>;
 
             display-name = "ide_recent_file";
         };
@@ -68,6 +68,13 @@
             bindings = <&kp LA(F1)>, <&macro_wait_time 100>, <&kp N1>;
 
             label = "file_path";
+        };
+
+        shift_shift: shift_shift {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT &kp LEFT_SHIFT>;
+            label = "SHIFT_SHIFT";
         };
     };
 
@@ -100,11 +107,11 @@
             //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&trans   &trans                  &trans  &trans        &trans             &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&kp A    &trans                  &trans  &trans        &trans             &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&kp TAB  &trans                  &trans  &trans        &trans             &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&kp LS(TAB)  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &letter_tap LCTRL Z     &trans    &trans  &kp K               &kp H               &letter_tap LCTRL COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT SEMICOLON
-                                         &mt LGUI ESC  &layer_tap 7 CAPS  &layer_tap 3 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHIFT
+&trans       &trans                  &trans  &trans        &trans                    &trans                                    &trans              &trans              &trans                   &trans                    &trans                  &trans
+&kp A        &trans                  &trans  &trans        &trans                    &trans                                    &trans              &trans              &trans                   &trans                    &trans                  &trans
+&kp TAB      &trans                  &trans  &trans        &trans                    &trans                                    &trans              &trans              &trans                   &trans                    &trans                  &trans
+&kp LS(TAB)  &letter_tap LEFT_ALT X  &kp C   &kp D         &letter_tap LEFT_SHIFT V  &letter_tap LCTRL Z     &trans    &trans  &kp K               &kp H               &letter_tap LCTRL COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT SEMICOLON
+                                             &mt LGUI ESC  &layer_tap 7 CAPS         &layer_tap 3 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHIFT
             >;
         };
 
