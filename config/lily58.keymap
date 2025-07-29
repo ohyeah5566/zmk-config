@@ -19,7 +19,8 @@
             flavor = "balanced";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
-			display-name = "tap-layer";
+
+            display-name = "tap-layer";
         };
     };
 };
@@ -30,74 +31,53 @@
 
         default_layer {
             // ------------------------------------------------------------------------------------------------------------
-            // | GRAVE  |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   |   `   |
-            // |  GRAVE |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   |  |   -   |
-            // |  CTRL  |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   '   |
-            // | SH+TAB |  Z  |  X  |  C   |  V   |  B   |   trans  |  |  trans  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-            //                     | ALT  | LANG_L3  | BS_L1 |  trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
+            // | GRAVE  |  1  |  2  |  3   |  4   |  5   |                  |  6   |  7    |  8    |  9   |   0   |   `   |
+            // |  GRAVE |  Q  |  W  |  E   |  R   |  T   |                  |  Y   |  U    |  I    |  O   |   |  |   -   |
+            // |  CTRL  |  A  |  S  |  D   |  F   |  G   |                  |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SH+TAB |  Z  |  X  |  C   |  V   |  B   | trans |  | trans |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3    &kp N4       &kp N5                             &kp N6       &kp N7       &kp N8     &kp N9   &kp N0    &kp GRAVE
-&trans       &kp Q   &kp W   &kp F     &kp P        &kp B                              &kp J        &kp L        &kp U      &kp Y    &kp PIPE  &kp SEMI
-&kp TAB      &kp A   &kp R   &kp S     &kp T        &kp G                              &kp M        &kp N        &kp E      &kp I    &kp O     &kp MINUS
-&kp LS(TAB)  &kp X   &kp C   &kp D     &kp V        &kp Z            &trans    &trans  &kp K        &kp M        &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                             &kp LALT  &ht 3 LSHFT  &ht 1 BACKSPACE  &trans    &trans  &ht 2 SPACE  &ht 4 ENTER  &sk LSHFT
+&kp GRAVE    &kp N1  &kp N2  &kp N3            &kp N4       &kp N5                             &kp N6       &kp N7       &kp N8     &kp N9   &kp N0    &kp GRAVE
+&trans       &kp Q   &kp W   &kp F             &kp P        &kp B                              &kp J        &kp L        &kp U      &kp Y    &kp PIPE  &kp SEMI
+&kp TAB      &kp A   &kp R   &kp S             &kp T        &kp G                              &kp M        &kp N        &kp E      &kp I    &kp O     &kp MINUS
+&kp LS(TAB)  &kp X   &kp C   &kp D             &kp V        &kp Z            &trans    &trans  &kp K        &kp M        &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                             &mt LEFT_GUI ESC  &ht 3 LSHFT  &ht 1 BACKSPACE  &trans    &trans  &ht 2 SPACE  &ht 3 ENTER  &sk LSHFT
             >;
-
         };
 
         lower_layer {
             // ------------------------------------------------------------------------------------------------------------
-            // |       |     |     |      |      |      |                   |     |       |       |      |       |       |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  +  |  7  |  8  |  9  |  %   |     |
-            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  -  |  4  |  5  |  6  |  *   |     |
-            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  =  |  1  |  2  |  3  |  /   |     |
-            //                     |      |      |      |        |  |       |  0  |  .  |  :  |
+            // |    |       |      |      |       |       |                   |     |       |       |      |       |       |
+            // |    | rpl   | find |      |       |       |                   |  +  |  7  |  8  |  9  |  %   |     |
+            // |    |slt All| cut  | copy | paste | ENTER |                   |  -  |  4  |  5  |  6  |  *   |     |
+            // |    |       |      |      |       |       |        |  |       |  =  |  1  |  2  |  3  |  /   |     |
+            //                     |      |       |       |        |  |       |  0  |  .  |  :  |
 
             bindings = <
-&trans     &trans  &trans  &trans   &trans   &trans                     &trans       &trans  &trans  &trans  &trans     &trans
-&kp GRAVE  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
-&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &kp MINUS    &kp N4  &kp N5  &kp N6  &kp ASTRK  &trans
-&kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp EQUAL    &kp N1  &kp N2  &kp N3  &kp RBKT   &kp FSLH
-                           &trans   &trans   &trans   &trans    &trans  &kp N0       &trans  &trans
+&trans  &trans     &trans     &trans     &trans     &trans                       &trans       &trans  &trans  &trans  &trans     &trans
+&trans  &trans     &kp LC(R)  &kp LC(F)  &kp N4     &kp N5                       &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
+&trans  &kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp ENTER                    &kp MINUS    &kp N4  &kp N5  &kp N6  &kp ASTRK  &trans
+&trans  &trans     &trans     &trans     &trans     &trans     &trans    &trans  &kp EQUAL    &kp N1  &kp N2  &kp N3  &kp RBKT   &kp FSLH
+                              &trans     &trans     &trans     &trans    &trans  &kp N0       &trans  &trans
             >;
-
         };
 
         raise_layer {
             // ------------------------------------------------------------------------------------------------------------
-            // |       |     |     |      |      |      |                   |     |       |       |      |       |       |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  +  |  7  |  8  |  9  |  %   |     |
-            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  -  |  4  |  5  |  6  |  *   |     |
-            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  =  |  1  |  2  |  3  |  /   |     |
-            //                     |      |      |      |        |  |       |  0  |  .  |  :  |
+            // |     |     |     |     |     |     |                   |       |       |     |      |       |       |
+            // |  '  |  ^  |  `  |  ~  |  {  |  }  |                   | HOME  |  PAGE_UP    |  ^        |            |       |    |
+            // |  "  |  !  |  @  |  =  |  (  |  )  |                   | HOME  |  <-         |  v        |  ->        |  END  |    |
+            // |  #  |  $  |  &  |  |  |  [  |  ]  |        |  |       | END   |  PAGE_DOWN  |  LCT_LEFT |  LCT_RIGHT |       |    |
+            //                   |  CTR_BACK | LSH |        |  |       |   |   |   |  |
 
             bindings = <
-&trans   &trans     &trans     &trans     &trans    &trans                      &trans        &trans         &trans        &trans         &trans         &trans
-&kp SQT  &kp CARET  &kp GRAVE  &kp TILDE  &kp LBRC  &kp RBRC                    &kp HOME      &kp PAGE_UP    &kp UP        &kp N9         &trans         &trans
-&kp F1   &kp F2     &kp F3     &kp F4     &kp LPAR  &kp RPAR                    &kp LG(LEFT)  &kp LEFT       &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
-&kp F7   &kp F8     &kp F9     &kp F10    &kp LBKT  &kp RBKT  &trans    &trans  &kp END       &kp PAGE_DOWN  &kp LA(LEFT)  &kp LA(RIGHT)  &trans         &trans
-                               &trans     &trans    &trans    &trans    &trans  &kp N0        &trans         &trans
+&trans             &trans      &trans         &trans             &trans      &trans                      &trans    &trans         &trans        &trans         &trans   &trans
+&kp SQT            &kp CARET   &kp GRAVE      &kp TILDE          &kp LBRC    &kp RBRC                    &kp HOME  &kp PAGE_UP    &kp UP        &trans         &trans   &trans
+&kp DOUBLE_QUOTES  &kp EXCL    &kp AT_SIGN    &kp EQUAL          &kp LPAR    &kp RPAR                    &kp HOME  &kp LEFT       &kp DOWN      &kp RIGHT      &kp END  &trans
+&kp HASH           &kp DOLLAR  &kp AMPERSAND  &kp PIPE           &kp LBKT    &kp RBKT  &trans    &trans  &kp END   &kp PAGE_DOWN  &kp LC(LEFT)  &kp LC(RIGHT)  &trans   &trans
+                                              &kp LC(BACKSPACE)  &kp LSHIFT  &trans    &trans    &trans  &trans    &trans         &trans
             >;
-
-        };
-
-        layer_3 {
-            // ------------------------------------------------------------------------------------------------------------
-            // |       |     |     |      |      |      |                   |      |       |       |      |       |       |
-            // |   `   |  1  |  2  |  3   |  4   |  5   |                   |  6   |   7   |   8   |  9   |   0   |       |
-            // |   F1  |  F2 |  F3 |  F4  |  F5  |  F6  |                   |      |   <-  |   v   |  ^   |  ->   |       |
-            // |   F7  |  F8 |  F9 |  F10 |  F11 |  F12 |        |  |       |  +   |   -   |   =   |  [   |   ]   |   \   |
-            //                     |      |      |      |        |  |       |      |       |       |
-
-            bindings = <
-&trans     &trans  &trans  &trans   &trans   &trans                     &trans       &trans     &trans     &trans    &trans     &trans
-&kp GRAVE  &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                     &kp N6       &kp N7     &kp N8     &kp N9    &kp N0     &trans
-&kp F1     &kp F2  &kp F3  &kp F4   &kp F5   &kp F6                     &trans       &kp LEFT   &kp DOWN   &kp UP    &kp RIGHT  &trans
-&kp F7     &kp F8  &kp F9  &kp F10  &kp F11  &kp F12  &trans    &trans  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT   &kp BSLH
-                           &trans   &trans   &trans   &trans    &trans  &trans       &trans     &trans
-            >;
-
         };
 
         layer_4 {
