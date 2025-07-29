@@ -4,6 +4,7 @@
  * SPDX-License-Identifier: MIT
  */
 
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
@@ -22,6 +23,24 @@
 
             display-name = "tap-layer";
         };
+
+        ide_f_u: tap_dance {
+            compatible = "zmk,behavior-tap-dance";
+            label = "find_usage";
+            #binding-cells = <0>;
+            bindings = <&kp LG(B)>, <&kp LG(LA(B))>;
+
+            display-name = "ide_find_usage";
+        };
+
+        ide_r_file: tap_dance2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "recent_file";
+            #binding-cells = <0>;
+            bindings = <&kp LG(E)>, <&kp LS(LG(T))>;
+
+            display-name = "ide_recent_file";
+        };
     };
 };
 
@@ -38,11 +57,11 @@
             //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3         &kp N4       &kp N5                             &kp N6       &kp N7       &kp N8     &kp N9   &kp N0    &kp GRAVE
-&trans       &kp Q   &kp W   &kp F          &kp P        &kp B                              &kp J        &kp L        &kp U      &kp Y    &kp PIPE  &kp SEMI
-&kp TAB      &kp A   &kp R   &kp S          &kp T        &kp G                              &kp M        &kp N        &kp E      &kp I    &kp O     &kp MINUS
-&kp LS(TAB)  &kp X   &kp C   &kp D          &kp V        &kp Z            &trans    &trans  &kp K        &kp M        &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                             &mt LCTRL ESC  &ht 3 LSHFT  &ht 2 BACKSPACE  &trans    &trans  &ht 4 SPACE  &ht 6 ENTER  &sk LSHFT
+&kp GRAVE    &kp N1  &kp N2  &kp N3        &kp N4     &kp N5                             &kp N6       &kp N7       &kp N8     &kp N9   &kp N0    &kp GRAVE
+&trans       &kp Q   &kp W   &kp F         &kp P      &kp B                              &kp J        &kp L        &kp U      &kp Y    &kp PIPE  &kp SEMI
+&kp TAB      &kp A   &kp R   &kp S         &kp T      &kp G                              &kp M        &kp N        &kp E      &kp I    &kp O     &kp MINUS
+&kp LS(TAB)  &kp X   &kp C   &kp D         &kp V      &kp Z            &trans    &trans  &kp K        &kp H        &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                             &mt LALT ESC  &kp LSHFT  &ht 2 BACKSPACE  &trans    &trans  &ht 4 SPACE  &ht 6 ENTER  &sk LSHFT
             >;
         };
 
@@ -59,7 +78,7 @@
 &trans  &trans  &trans  &trans        &trans       &trans                             &trans       &trans       &trans      &trans  &trans  &trans
 &trans  &trans  &trans  &trans        &trans       &trans                             &trans       &trans       &trans      &trans  &trans  &trans
 &trans  &trans  &trans  &trans        &trans       &trans           &trans    &trans  &trans       &trans       &trans      &trans  &trans  &trans
-                        &mt LGUI ESC  &ht 4 LSHFT  &ht 4 BACKSPACE  &trans    &trans  &ht 2 SPACE  &ht 6 ENTER  &sk LSHIFT
+                        &mt LGUI ESC  &ht 7 LSHFT  &ht 3 BACKSPACE  &trans    &trans  &ht 4 SPACE  &ht 6 ENTER  &sk LSHIFT
             >;
         };
 
@@ -72,11 +91,11 @@
             //                     |      |       |       |        |  |       |  0  |  .  |  :  |
 
             bindings = <
-&trans  &trans     &trans     &trans     &trans     &trans                       &trans       &trans  &trans  &trans  &trans     &trans
-&trans  &trans     &kp LC(R)  &kp LC(F)  &trans     &trans                       &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
-&trans  &kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp ENTER                    &kp MINUS    &kp N4  &kp N5  &kp N6  &kp ASTRK  &trans
-&trans  &trans     &trans     &trans     &trans     &trans     &trans    &trans  &kp EQUAL    &kp N1  &kp N2  &kp N3  &kp RBKT   &kp FSLH
-                              &trans     &trans     &trans     &trans    &trans  &kp N0       &trans  &trans
+&trans  &trans     &trans     &trans         &trans     &trans                       &trans       &trans  &trans  &trans  &trans     &trans
+&trans  &trans     &kp LC(R)  &kp LC(F)      &trans     &trans                       &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
+&trans  &kp LC(A)  &kp LC(X)  &kp LC(C)      &kp LC(V)  &kp ENTER                    &kp MINUS    &kp N4  &kp N5  &kp N6  &kp ASTRK  &trans
+&trans  &trans     &trans     &kp LC(LS(Z))  &kp LC(Z)  &trans     &trans    &trans  &kp EQUAL    &kp N1  &kp N2  &kp N3  &kp RBKT   &kp FSLH
+                              &trans         &trans     &trans     &trans    &trans  &kp N0       &trans  &trans
             >;
         };
 
@@ -89,11 +108,11 @@
             //                     |      |       |       |        |  |       |  0  |  .  |  :  |
 
             bindings = <
-&trans  &trans     &trans     &trans     &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &kp LG(R)  &kp LG(F)  &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LG(A)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp ENTER                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans     &trans     &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                              &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans
+&trans          &trans        &trans         &trans         &trans     &trans                                                   &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &trans        &kp LG(R)      &kp LG(F)      &trans     &mt LC(LS(NUMBER_4)) LS(LG(NUMBER_4))                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans          &kp LG(A)     &kp LG(X)      &kp LG(C)      &kp LG(V)  &kp ENTER                                                &trans  &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT  &kp LC(LEFT)  &kp LC(RIGHT)  &kp LG(LS(Z))  &kp LG(Z)  &trans                                 &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                             &trans         &trans     &trans                                 &trans    &trans  &trans  &trans  &trans
             >;
         };
 
@@ -123,11 +142,11 @@
             //                   |  CTR_BACK | LSH |        |  |       |   |   |   |  |
 
             bindings = <
-&trans  &trans  &trans  &trans             &trans      &trans                    &trans        &trans         &trans        &trans         &trans         &trans
-&trans  &trans  &trans  &trans             &trans      &trans                    &kp HOME      &kp PAGE_UP    &kp UP        &trans         &trans         &trans
-&trans  &trans  &trans  &trans             &trans      &trans                    &kp LG(LEFT)  &kp LEFT       &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
-&trans  &trans  &trans  &trans             &trans      &trans  &trans    &trans  &kp END       &kp PAGE_DOWN  &kp LA(LEFT)  &kp LA(RIGHT)  &trans         &trans
-                        &kp LA(BACKSPACE)  &kp LSHIFT  &trans  &trans    &trans  &trans        &trans         &trans
+&trans  &trans  &trans  &trans             &trans      &trans                              &trans        &trans         &trans        &trans         &trans         &trans
+&trans  &trans  &trans  &trans             &trans      &trans                              &kp HOME      &kp PAGE_UP    &kp UP        &trans         &trans         &trans
+&trans  &trans  &trans  &trans             &trans      &trans                              &kp LG(LEFT)  &kp LEFT       &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
+&trans  &trans  &trans  &trans             &trans      &trans            &trans    &trans  &kp END       &kp PAGE_DOWN  &kp LA(LEFT)  &kp LA(RIGHT)  &trans         &trans
+                        &kp LA(BACKSPACE)  &kp LSHIFT  &kp LS(LEFT_GUI)  &trans    &trans  &trans        &trans         &trans
             >;
         };
 
@@ -138,6 +157,16 @@
 &trans        &trans        &trans  &trans  &trans     &trans                    &trans  &kp F4  &kp F5  &kp F6  &trans  &trans
 &trans        &trans        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &kp F1  &kp F2  &kp F3  &trans  &trans
                                     &trans  &kp LSHFT  &trans  &trans    &trans  &trans  &trans  &trans
+            >;
+        };
+
+        ide_mac {
+            bindings = <
+&trans  &trans         &trans     &trans                 &trans                &trans                    &trans     &trans         &trans         &trans         &trans        &trans
+&trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))        &kp LC(TAB)           &trans                    &trans     &trans         &kp LS(QMARK)  &kp LS(COLON)  &kp LS(DLLR)  &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &ide_r_file           &trans                    &trans     &trans         &kp LS(DQT)    &kp SQT        &trans        &trans
+&trans  &trans         &trans     &kp LG(RIGHT_BRACKET)  &kp LG(LEFT_BRACKET)  &trans  &trans    &trans  &kp EQUAL  &kp LS(UNDER)  &kp LS(LT)     &kp LS(GT)     &trans        &trans
+                                  &trans                 &trans                &trans  &trans    &trans  &trans     &trans         &trans
             >;
         };
     };
