@@ -32,21 +32,38 @@
         default_layer {
             // ------------------------------------------------------------------------------------------------------------
             // | GRAVE  |  1  |  2  |  3   |  4   |  5   |                  |  6   |  7    |  8    |  9   |   0   |   `   |
-            // |  GRAVE |  Q  |  W  |  E   |  R   |  T   |                  |  Y   |  U    |  I    |  O   |   |  |   -   |
-            // |  CTRL  |  A  |  S  |  D   |  F   |  G   |                  |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // |        |  Q  |  W  |  E   |  R   |  T   |                  |  Y   |  U    |  I    |  O   |   |  |   -   |
+            // | CTRL   |  A  |  S  |  D   |  F   |  G   |                  |  H   |  J    |  K    |  L   |   ;   |   '   |
             // | SH+TAB |  Z  |  X  |  C   |  V   |  B   | trans |  | trans |  N   |  M    |  ,    |  .   |   /   | SHIFT |
             //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE    &kp N1  &kp N2  &kp N3            &kp N4       &kp N5                             &kp N6       &kp N7       &kp N8     &kp N9   &kp N0    &kp GRAVE
-&trans       &kp Q   &kp W   &kp F             &kp P        &kp B                              &kp J        &kp L        &kp U      &kp Y    &kp PIPE  &kp SEMI
-&kp TAB      &kp A   &kp R   &kp S             &kp T        &kp G                              &kp M        &kp N        &kp E      &kp I    &kp O     &kp MINUS
-&kp LS(TAB)  &kp X   &kp C   &kp D             &kp V        &kp Z            &trans    &trans  &kp K        &kp M        &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                             &mt LEFT_GUI ESC  &ht 3 LSHFT  &ht 1 BACKSPACE  &trans    &trans  &ht 2 SPACE  &ht 3 ENTER  &sk LSHFT
+&kp GRAVE    &kp N1  &kp N2  &kp N3         &kp N4       &kp N5                             &kp N6       &kp N7       &kp N8     &kp N9   &kp N0    &kp GRAVE
+&trans       &kp Q   &kp W   &kp F          &kp P        &kp B                              &kp J        &kp L        &kp U      &kp Y    &kp PIPE  &kp SEMI
+&kp TAB      &kp A   &kp R   &kp S          &kp T        &kp G                              &kp M        &kp N        &kp E      &kp I    &kp O     &kp MINUS
+&kp LS(TAB)  &kp X   &kp C   &kp D          &kp V        &kp Z            &trans    &trans  &kp K        &kp M        &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+                             &mt LCTRL ESC  &ht 3 LSHFT  &ht 2 BACKSPACE  &trans    &trans  &ht 4 SPACE  &ht 6 ENTER  &sk LSHFT
             >;
         };
 
-        lower_layer {
+        default_mac_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // | GRAVE  |  1  |  2  |  3   |  4   |  5   |                  |  6   |  7    |  8    |  9   |   0   |   `   |
+            // |        |  Q  |  W  |  E   |  R   |  T   |                  |  Y   |  U    |  I    |  O   |   |  |   -   |
+            // | CTRL   |  A  |  S  |  D   |  F   |  G   |                  |  H   |  J    |  K    |  L   |   ;   |   '   |
+            // | SH+TAB |  Z  |  X  |  C   |  V   |  B   | trans |  | trans |  N   |  M    |  ,    |  .   |   /   | SHIFT |
+            //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
+
+            bindings = <
+&trans  &trans  &trans  &trans        &trans       &trans                             &trans       &trans       &trans      &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans       &trans                             &trans       &trans       &trans      &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans       &trans                             &trans       &trans       &trans      &trans  &trans  &trans
+&trans  &trans  &trans  &trans        &trans       &trans           &trans    &trans  &trans       &trans       &trans      &trans  &trans  &trans
+                        &mt LGUI ESC  &ht 4 LSHFT  &ht 4 BACKSPACE  &trans    &trans  &ht 2 SPACE  &ht 6 ENTER  &sk LSHIFT
+            >;
+        };
+
+        ft_num_layer {
             // ------------------------------------------------------------------------------------------------------------
             // |    |       |      |      |       |       |                   |     |       |       |      |       |       |
             // |    | rpl   | find |      |       |       |                   |  +  |  7  |  8  |  9  |  %   |     |
@@ -56,10 +73,27 @@
 
             bindings = <
 &trans  &trans     &trans     &trans     &trans     &trans                       &trans       &trans  &trans  &trans  &trans     &trans
-&trans  &trans     &kp LC(R)  &kp LC(F)  &kp N4     &kp N5                       &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
+&trans  &trans     &kp LC(R)  &kp LC(F)  &trans     &trans                       &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
 &trans  &kp LC(A)  &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp ENTER                    &kp MINUS    &kp N4  &kp N5  &kp N6  &kp ASTRK  &trans
 &trans  &trans     &trans     &trans     &trans     &trans     &trans    &trans  &kp EQUAL    &kp N1  &kp N2  &kp N3  &kp RBKT   &kp FSLH
                               &trans     &trans     &trans     &trans    &trans  &kp N0       &trans  &trans
+            >;
+        };
+
+        ft_num_MAC_4 {
+            // ------------------------------------------------------------------------------------------------------------
+            // |    |       |      |      |       |       |                   |     |       |       |      |       |       |
+            // |    | rpl   | find |      |       |       |                   |  +  |  7  |  8  |  9  |  %   |     |
+            // |    |slt All| cut  | copy | paste | ENTER |                   |  -  |  4  |  5  |  6  |  *   |     |
+            // |    |       |      |      |       |       |        |  |       |  =  |  1  |  2  |  3  |  /   |     |
+            //                     |      |       |       |        |  |       |  0  |  .  |  :  |
+
+            bindings = <
+&trans  &trans     &trans     &trans     &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &kp LG(R)  &kp LG(F)  &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LG(A)  &kp LG(X)  &kp LG(C)  &kp LG(V)  &kp ENTER                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans     &trans     &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                              &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans
             >;
         };
 
@@ -80,13 +114,30 @@
             >;
         };
 
-        layer_4 {
+        layer_MAC_5 {
+            // ------------------------------------------------------------------------------------------------------------
+            // |     |     |     |     |     |     |                   |         |       |     |     |       |       |
+            // |  '  |  ^  |  `  |  ~  |  {  |  }  |                   | HOME    |  PAGE_UP    |  ^       |            |       |    |
+            // |  "  |  !  |  @  |  =  |  (  |  )  |                   | LG_LEFT |  <-         |  v       |  ->        |  LG_RIGHT  |    |
+            // |  #  |  $  |  &  |  |  |  [  |  ]  |        |  |       | END     |  PAGE_DOWN  |  LA_LEFT |  LA_RIGHT  |       |    |
+            //                   |  CTR_BACK | LSH |        |  |       |   |   |   |  |
+
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans             &trans      &trans                    &trans        &trans         &trans        &trans         &trans         &trans
+&trans  &trans  &trans  &trans             &trans      &trans                    &kp HOME      &kp PAGE_UP    &kp UP        &trans         &trans         &trans
+&trans  &trans  &trans  &trans             &trans      &trans                    &kp LG(LEFT)  &kp LEFT       &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
+&trans  &trans  &trans  &trans             &trans      &trans  &trans    &trans  &kp END       &kp PAGE_DOWN  &kp LA(LEFT)  &kp LA(RIGHT)  &trans         &trans
+                        &kp LA(BACKSPACE)  &kp LSHIFT  &trans  &trans    &trans  &trans        &trans         &trans
+            >;
+        };
+
+        BT_conf {
+            bindings = <
+&bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans  &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&tog 0        &tog 1        &trans  &trans  &trans     &trans                    &trans  &kp F7  &kp F8  &kp F9  &trans  &trans
+&trans        &trans        &trans  &trans  &trans     &trans                    &trans  &kp F4  &kp F5  &kp F6  &trans  &trans
+&trans        &trans        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &kp F1  &kp F2  &kp F3  &trans  &trans
+                                    &trans  &kp LSHFT  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
