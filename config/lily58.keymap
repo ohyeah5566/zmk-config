@@ -16,9 +16,19 @@
         layer_tap: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "balanced";
+            flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
+
+            display-name = "tap-layer";
+        };
+		
+        letter_tap: letter_h_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
 
             display-name = "tap-layer";
         };
@@ -76,7 +86,7 @@
 &kp GRAVE    &kp N1          &kp N2  &kp N3         &kp N4                   &kp N5                                    &kp N6              &kp N7              &kp N8     &kp N9   &kp N0    &kp GRAVE
 &kp W        &kp Q           &kp W   &kp F          &kp P                    &kp B                                     &kp J               &kp L               &kp U      &kp Y    &kp PIPE  &kp SEMI
 &kp LA(TAB)  &kp A           &kp R   &kp S          &kp T                    &kp G                                     &kp M               &kp N               &kp E      &kp I    &kp O     &kp MINUS
-&kp LS(TAB)  &mt LEFT_ALT X  &kp C   &kp D          &mt LEFT_SHIFT V         &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
+&kp LS(TAB)  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V         &letter_tap LCTRL Z             &trans    &trans  &kp K               &kp H               &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
                                      &mt LCTRL ESC  &layer_tap 7 LEFT_SHIFT  &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
             >;
         };
@@ -93,7 +103,7 @@
 &trans   &trans          &trans  &trans        &trans              &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
 &kp A    &trans          &trans  &trans        &trans              &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
 &kp TAB  &trans          &trans  &trans        &trans              &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&trans   &mt LEFT_ALT X  &trans  &trans        &trans              &trans                  &trans    &trans  &trans              &trans              &trans      &trans  &trans  &trans
+&trans   &letter_tap LEFT_ALT X  &trans  &trans        &trans              &trans                  &trans    &trans  &trans              &trans              &trans      &trans  &trans  &trans
                                  &mt LGUI ESC  &layer_tap 7 LSHFT  &layer_tap 3 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHIFT
             >;
         };
