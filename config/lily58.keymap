@@ -5,9 +5,8 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
 
 / {
     behaviors {
@@ -22,7 +21,7 @@
 
             display-name = "tap-layer";
         };
-		
+
         letter_tap: letter_h_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -83,11 +82,11 @@
             //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE    &kp N1          &kp N2  &kp N3         &kp N4                   &kp N5                                    &kp N6              &kp N7              &kp N8     &kp N9   &kp N0    &kp GRAVE
-&kp W        &kp Q           &kp W   &kp F          &kp P                    &kp B                                     &kp J               &kp L               &kp U      &kp Y    &kp PIPE  &kp SEMI
-&kp LA(TAB)  &kp A           &kp R   &kp S          &kp T                    &kp G                                     &kp M               &kp N               &kp E      &kp I    &kp O     &kp MINUS
-&kp LS(TAB)  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V         &letter_tap LCTRL Z             &trans    &trans  &kp K               &kp H               &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                                     &mt LCTRL ESC  &layer_tap 7 LEFT_SHIFT  &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
+&kp GRAVE    &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                   &kp N9                    &kp N0                  &kp EQUAL
+&kp W        &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                    &kp Y                     &kp PIPE                &kp SEMI
+&kp LA(TAB)  &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                    &kp I                     &kp O                   &kp COLON
+&kp LS(TAB)  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &letter_tap LCTRL Z     &trans    &trans  &kp K               &kp H               &letter_tap LCTRL COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT SEMICOLON
+                                             &mt LCTRL ESC  &layer_tap 7 LEFT_SHIFT   &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
             >;
         };
 
@@ -100,11 +99,11 @@
             //                 | ALT  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&trans   &trans          &trans  &trans        &trans              &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&kp A    &trans          &trans  &trans        &trans              &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&kp TAB  &trans          &trans  &trans        &trans              &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
-&trans   &letter_tap LEFT_ALT X  &trans  &trans        &trans              &trans                  &trans    &trans  &trans              &trans              &trans      &trans  &trans  &trans
-                                 &mt LGUI ESC  &layer_tap 7 LSHFT  &layer_tap 3 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHIFT
+&trans   &trans                  &trans  &trans        &trans             &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
+&kp A    &trans                  &trans  &trans        &trans             &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
+&kp TAB  &trans                  &trans  &trans        &trans             &trans                                    &trans              &trans              &trans      &trans  &trans  &trans
+&kp LS(TAB)  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &letter_tap LCTRL Z     &trans    &trans  &kp K               &kp H               &letter_tap LCTRL COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT SEMICOLON
+                                         &mt LGUI ESC  &layer_tap 7 CAPS  &layer_tap 3 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHIFT
             >;
         };
 
@@ -134,11 +133,11 @@
             //                     |      |       |       |        |  |       |  0  |  .  |  :  |
 
             bindings = <
-&trans          &trans        &trans         &trans         &trans     &trans                                                   &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans        &kp LG(R)      &kp LG(F)      &trans     &mt LC(LS(NUMBER_4)) LS(LG(NUMBER_4))                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &kp LG(A)     &kp LG(X)      &kp LG(C)      &kp LG(V)  &kp ENTER                                                &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &kp LC(LEFT)  &kp LC(RIGHT)  &kp LG(LS(Z))  &kp LG(Z)  &trans                                 &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                             &trans         &trans     &trans                                 &trans    &trans  &trans  &trans  &trans
+&trans          &trans        &trans         &trans         &trans     &trans                                                   &trans       &trans  &trans  &trans  &trans     &trans
+&trans          &trans        &kp LG(R)      &kp LG(F)      &trans     &mt LC(LS(NUMBER_4)) LS(LG(NUMBER_4))                    &kp KP_PLUS  &kp N7  &kp N8  &kp N9  &kp PRCNT  &trans
+&trans          &kp LG(A)     &kp LG(X)      &kp LG(C)      &kp LG(V)  &kp ENTER                                                &kp MINUS    &kp N4  &kp N5  &kp N6  &kp ASTRK  &trans
+&kp LEFT_SHIFT  &kp LC(LEFT)  &kp LC(RIGHT)  &kp LG(LS(Z))  &kp LG(Z)  &trans                                 &trans    &trans  &kp EQUAL    &kp N1  &kp N2  &kp N3  &kp RBKT   &kp FSLH
+                                             &trans         &trans     &trans                                 &trans    &trans  &kp N0       &trans  &trans
             >;
         };
 
@@ -178,11 +177,11 @@
 
         BT_conf {
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans  &trans     &tog 1                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans        &trans        &trans  &trans  &trans     &trans                    &trans  &kp F7  &kp F8  &kp F9  &trans  &trans
-&trans        &trans        &trans  &trans  &trans     &trans                    &trans  &kp F4  &kp F5  &kp F6  &trans  &trans
-&trans        &trans        &trans  &trans  &trans     &trans  &trans    &trans  &trans  &kp F1  &kp F2  &kp F3  &trans  &lp
-                                    &trans  &kp LSHFT  &trans  &trans    &trans  &trans  &trans  &trans
+&bt BT_SEL 0  &bt BT_SEL 1  &trans  &trans  &trans      &trans                            &trans  &trans  &trans  &trans  &trans  &trans
+&tog 1        &trans        &trans  &trans  &trans      &trans                            &trans  &kp F7  &kp F8  &kp F9  &trans  &trans
+&trans        &trans        &trans  &trans  &trans      &trans                            &trans  &kp F4  &kp F5  &kp F6  &trans  &trans
+&trans        &trans        &trans  &trans  &trans      &trans          &trans    &trans  &trans  &kp F1  &kp F2  &kp F3  &trans  &lp
+                                    &trans  &caps_word  &kp LEFT_SHIFT  &trans    &trans  &trans  &trans  &trans
             >;
         };
 
@@ -196,4 +195,5 @@
             >;
         };
     };
+};
 };
