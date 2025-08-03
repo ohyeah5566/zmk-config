@@ -32,16 +32,6 @@
             display-name = "letter_tap_hold_feat";
         };
 
-        win_tap: win_hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
-
-            display-name = "letter_tap_hold_win";
-        };
-
         ide_f_u: tap_dance {
             compatible = "zmk,behavior-tap-dance";
             label = "find_usage";
@@ -60,6 +50,11 @@
             display-name = "ide_recent_file";
         };
     };
+};
+
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
 };
 
 / {
@@ -102,8 +97,8 @@
 &kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                   &kp N9                    &kp N0                  &kp EQUAL
 &kp W            &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                    &kp Y                     &kp PIPE                &kp SEMI
 &kp TAB          &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                    &kp I                     &kp O                   &kp MINUS
-&kp LC(LA(TAB))  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &win_tap LEFT_GUI COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT BACKSLASH
-                                                 &mt LCTRL ESC  &layer_tap 7 LEFT_SHIFT   &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
+&kp LC(LA(TAB))  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &letter_tap LEFT_GUI COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT BACKSLASH
+                                                 &mt LCTRL ESC  &layer_tap 8 LEFT_SHIFT   &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
             >;
         };
 
