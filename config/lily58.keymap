@@ -18,6 +18,7 @@
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             bindings = <&mo>, <&kp>;
+
             display-name = "hold_layer_tap_kp";
         };
 
@@ -27,7 +28,18 @@
             flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&kp>;
+
             display-name = "letter_tap_hold_feat";
+        };
+
+        win_tap: win_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+
+            display-name = "letter_tap_hold_win";
         };
 
         ide_f_u: tap_dance {
@@ -87,10 +99,10 @@
             //                 | ctl esc  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                      &kp N9                    &kp N0                  &kp EQUAL
-&kp W            &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                       &kp Y                     &kp PIPE                &kp SEMI
-&kp TAB          &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                       &kp I                     &kp O                   &kp MINUS
-&kp LC(LA(TAB))  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &letter_tap LEFT_GUI COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT BACKSLASH
+&kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                   &kp N9                    &kp N0                  &kp EQUAL
+&kp W            &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                    &kp Y                     &kp PIPE                &kp SEMI
+&kp TAB          &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                    &kp I                     &kp O                   &kp MINUS
+&kp LC(LA(TAB))  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &win_tap LEFT_GUI COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT BACKSLASH
                                                  &mt LCTRL ESC  &layer_tap 7 LEFT_SHIFT   &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
             >;
         };
@@ -172,11 +184,11 @@
             //                   |  CTR_BACK | LSH |        |  |       |   |   |   |  |
 
             bindings = <
-&trans             &trans      &trans         &trans             &trans      &trans                      &trans        &trans         &trans        &trans         &trans         &trans
-&kp SQT            &kp CARET   &kp GRAVE      &kp TILDE          &kp LBRC    &kp RBRC                    &kp HOME      &kp PAGE_UP    &kp UP        &trans         &trans         &trans
-&kp DOUBLE_QUOTES  &kp EXCL    &kp AT_SIGN    &kp EQUAL          &kp LPAR    &kp RPAR                    &kp LG(LEFT)  &kp LEFT       &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
-&kp HASH           &kp DOLLAR  &kp AMPERSAND  &kp PIPE           &kp LBKT    &kp RBKT  &trans    &trans  &kp END       &kp PAGE_DOWN  &kp LA(LEFT)  &kp LA(RIGHT)  &trans         &trans
-                               &kp LA(BACKSPACE)  &kp LSHIFT  &kp LS(LEFT_GUI)  &trans    &trans  &trans        &trans         &trans
+&trans             &trans      &trans         &trans             &trans      &trans                              &trans        &trans         &trans        &trans         &trans         &trans
+&kp SQT            &kp CARET   &kp GRAVE      &kp TILDE          &kp LBRC    &kp RBRC                            &kp HOME      &kp PAGE_UP    &kp UP        &trans         &trans         &trans
+&kp DOUBLE_QUOTES  &kp EXCL    &kp AT_SIGN    &kp EQUAL          &kp LPAR    &kp RPAR                            &kp LG(LEFT)  &kp LEFT       &kp DOWN      &kp RIGHT      &kp LG(RIGHT)  &trans
+&kp HASH           &kp DOLLAR  &kp AMPERSAND  &kp PIPE           &kp LBKT    &kp RBKT          &trans    &trans  &kp END       &kp PAGE_DOWN  &kp LA(LEFT)  &kp LA(RIGHT)  &trans         &trans
+                                              &kp LA(BACKSPACE)  &kp LSHIFT  &kp LS(LEFT_GUI)  &trans    &trans  &trans        &trans         &trans
             >;
         };
 
@@ -197,6 +209,16 @@
 &trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &ide_r_file           &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
 &trans  &trans         &trans     &kp LG(RIGHT_BRACKET)  &kp LG(LEFT_BRACKET)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
                                   &trans                 &trans                &trans         &trans    &trans  &trans     &trans          &trans
+            >;
+        };
+
+        browser_win {
+            bindings = <
+&trans  &trans         &trans     &trans           &trans        &trans                           &trans     &trans          &trans             &trans            &trans      &trans
+&trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))  &kp LC(TAB)   &kp LG(LA(L))                    &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u         &ide_r_file   &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
+&trans  &trans         &trans     &kp LA(RIGHT)    &kp LA(LEFT)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
+                                  &trans           &trans        &trans         &trans    &trans  &trans     &trans          &trans
             >;
         };
     };
