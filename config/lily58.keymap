@@ -50,12 +50,21 @@
         };
 		
 		
-        td_mt: tap_dance_mod_tap {
+        td_mt_win: tap_dance_mod_tap_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "hold_to_restore_browser_page";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&mt LT(LC(T)) LG(E)>, <&shift_shift>;
+        };
+		
+		
+        td_mt_mac: tap_dance_mod_tap_mac {
             compatible = "zmk,behavior-tap-dance";
             label = "ide_recent_file_and_restore_browser_page";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LT(LC(T)) LG(E)>, <&shift_shift>;
+            bindings = <&mt LT(LG(T)) LG(E)>, <&shift_shift>;
         };
     };
 };
@@ -209,7 +218,7 @@
             bindings = <
 &trans  &trans         &trans     &trans                 &trans                &trans                           &trans     &trans          &trans             &trans            &trans      &trans
 &trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))        &kp LC(TAB)           &kp LG(LA(L))                    &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
-&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &td_mt                &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &td_mt_mac                &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
 &trans  &trans         &trans     &kp LG(RIGHT_BRACKET)  &kp LG(LEFT_BRACKET)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
                                   &trans                 &trans                &trans         &trans    &trans  &trans     &trans          &trans
             >;
@@ -219,7 +228,7 @@
             bindings = <
 &trans  &trans         &trans     &trans           &trans        &trans                           &trans     &trans          &trans             &trans            &trans      &trans
 &trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))  &kp LC(TAB)   &kp LG(LA(L))                    &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
-&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u         &td_mt        &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u         &td_mt_win        &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
 &trans  &trans         &trans     &kp LA(RIGHT)    &kp LA(LEFT)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
                                   &trans           &trans        &trans         &trans    &trans  &trans     &trans          &trans
             >;
