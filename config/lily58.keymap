@@ -55,7 +55,7 @@
             label = "hold_to_restore_browser_page";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LT(LC(T)) LG(E)>, <&shift_shift>;
+            bindings = <&mt LS(LC(T)) LG(E)>, <&shift_shift>;
         };
 		
 		
@@ -64,7 +64,7 @@
             label = "ide_recent_file_and_restore_browser_page";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&mt LT(LG(T)) LG(E)>, <&shift_shift>;
+            bindings = <&mt LS(LG(T)) LG(E)>, <&shift_shift>;
         };
     };
 };
