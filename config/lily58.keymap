@@ -118,7 +118,7 @@
             //                 | ctl esc  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                      &kp N9                    &kp N0                  &kp EQUAL
+&kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                      &kp N9                    &kp N0                  &kp DELETE
 &kp W            &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                       &kp Y                     &kp PIPE                &kp SEMI
 &kp TAB          &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                       &kp I                     &kp O                   &kp MINUS
 &kp LC(LA(TAB))  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &letter_tap LEFT_GUI COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT BACKSLASH
