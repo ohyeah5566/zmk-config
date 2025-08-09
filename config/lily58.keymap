@@ -37,6 +37,7 @@
             label = "find_usage";
             #binding-cells = <0>;
             bindings = <&kp LG(B)>, <&kp LG(LA(B))>;
+
             display-name = "ide_find_usage";
         };
 
@@ -48,8 +49,7 @@
 
             display-name = "ide_recent_file";
         };
-		
-		
+
         td_mt_win: tap_dance_mod_tap_win {
             compatible = "zmk,behavior-tap-dance";
             label = "hold_to_restore_browser_page";
@@ -57,14 +57,21 @@
             tapping-term-ms = <200>;
             bindings = <&mt LS(LC(T)) LG(E)>, <&shift_shift>;
         };
-		
-		
+
         td_mt_mac: tap_dance_mod_tap_mac {
             compatible = "zmk,behavior-tap-dance";
             label = "ide_recent_file_and_restore_browser_page";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&mt LS(LG(T)) LG(E)>, <&shift_shift>;
+        };
+
+        ptt_mode: ptt_mode {
+            compatible = "zmk,behavior-tap-dance";
+            label = "PTT_MODE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&to 0>, <&to 4>;
         };
     };
 };
@@ -111,9 +118,9 @@
             //                 | ctl esc  | LANG_L3  | BS_L1 | trans |  | trans | SPACE_L2 | ENTER_L4  | GUI   |
 
             bindings = <
-&kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                   &kp N9                    &kp N0                  &kp EQUAL
-&kp W            &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                    &kp Y                     &kp PIPE                &kp SEMI
-&kp TAB          &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                    &kp I                     &kp O                   &kp MINUS
+&kp GRAVE        &kp N1                  &kp N2  &kp N3         &kp N4                    &kp N5                                    &kp N6              &kp N7              &kp N8                      &kp N9                    &kp N0                  &kp EQUAL
+&kp W            &kp Q                   &kp W   &kp F          &kp P                     &kp B                                     &kp J               &kp L               &kp U                       &kp Y                     &kp PIPE                &kp SEMI
+&kp TAB          &kp A                   &kp R   &kp S          &kp T                     &kp G                                     &kp M               &kp N               &kp E                       &kp I                     &kp O                   &kp MINUS
 &kp LC(LA(TAB))  &letter_tap LEFT_ALT X  &kp C   &kp D          &letter_tap LEFT_SHIFT V  &mt LCTRL Z             &trans    &trans  &kp K               &kp H               &letter_tap LEFT_GUI COMMA  &letter_tap LEFT_ALT DOT  &letter_tap LCTRL FSLH  &letter_tap RSHFT BACKSLASH
                                                  &mt LCTRL ESC  &layer_tap 8 LEFT_SHIFT   &layer_tap 2 BACKSPACE  &trans    &trans  &layer_tap 4 SPACE  &layer_tap 6 ENTER  &sk LSHFT
             >;
@@ -183,7 +190,7 @@
 &kp SQT            &kp CARET   &kp GRAVE      &kp TILDE          &kp LBRC    &kp RBRC                    &kp HOME  &kp PAGE_UP    &kp UP        &trans         &trans   &trans
 &kp DOUBLE_QUOTES  &kp EXCL    &kp AT_SIGN    &kp EQUAL          &kp LPAR    &kp RPAR                    &kp HOME  &kp LEFT       &kp DOWN      &kp RIGHT      &kp END  &trans
 &kp HASH           &kp DOLLAR  &kp AMPERSAND  &kp PIPE           &kp LBKT    &kp RBKT  &trans    &trans  &kp END   &kp PAGE_DOWN  &kp LC(LEFT)  &kp LC(RIGHT)  &trans   &trans
-                                              &kp LC(BACKSPACE)  &kp LSHIFT  &trans    &trans    &trans  &trans    &trans         &to 4
+                                              &kp LC(BACKSPACE)  &kp LSHIFT  &trans    &trans    &trans  &trans    &trans         &ptt_mode
             >;
         };
 
@@ -218,7 +225,7 @@
             bindings = <
 &trans  &trans         &trans     &trans                 &trans                &trans                           &trans     &trans          &trans             &trans            &trans      &trans
 &trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))        &kp LC(TAB)           &kp LG(LA(L))                    &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
-&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &td_mt_mac                &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u               &td_mt_mac            &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
 &trans  &trans         &trans     &kp LG(RIGHT_BRACKET)  &kp LG(LEFT_BRACKET)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
                                   &trans                 &trans                &trans         &trans    &trans  &trans     &trans          &trans
             >;
@@ -228,7 +235,7 @@
             bindings = <
 &trans  &trans         &trans     &trans           &trans        &trans                           &trans     &trans          &trans             &trans            &trans      &trans
 &trans  &kp LG(TILDE)  &kp LG(P)  &kp LC(LS(TAB))  &kp LC(TAB)   &kp LG(LA(L))                    &trans     &trans          &kp QUESTION       &kp COLON         &kp DOLLAR  &trans
-&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u         &td_mt_win        &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
+&trans  &kp LA(ENTER)  &kp LG(D)  &ide_f_u         &td_mt_win    &file_path                       &trans     &trans          &kp DOUBLE_QUOTES  &kp SQT           &trans      &trans
 &trans  &trans         &trans     &kp LA(RIGHT)    &kp LA(LEFT)  &trans         &trans    &trans  &kp EQUAL  &kp UNDERSCORE  &kp LESS_THAN      &kp GREATER_THAN  &trans      &trans
                                   &trans           &trans        &trans         &trans    &trans  &trans     &trans          &trans
             >;
