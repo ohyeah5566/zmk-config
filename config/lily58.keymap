@@ -70,8 +70,8 @@
             compatible = "zmk,behavior-tap-dance";
             label = "PTT_MODE";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&to 0>, <&to 4>;
+            tapping-term-ms = <400>;
+			bindings = <&kp A>, <&kp B>;
         };
     };
 };
@@ -190,7 +190,7 @@
 &kp SQT            &kp CARET   &kp GRAVE      &kp TILDE          &kp LBRC    &kp RBRC                    &kp HOME  &kp PAGE_UP    &kp UP        &trans         &trans   &trans
 &kp DOUBLE_QUOTES  &kp EXCL    &kp AT_SIGN    &kp EQUAL          &kp LPAR    &kp RPAR                    &kp HOME  &kp LEFT       &kp DOWN      &kp RIGHT      &kp END  &trans
 &kp HASH           &kp DOLLAR  &kp AMPERSAND  &kp PIPE           &kp LBKT    &kp RBKT  &trans    &trans  &kp END   &kp PAGE_DOWN  &kp LC(LEFT)  &kp LC(RIGHT)  &trans   &trans
-                                              &kp LC(BACKSPACE)  &kp LSHIFT  &trans    &trans    &trans  &trans    &trans         &ptt_mode
+                                              &kp LC(BACKSPACE)  &kp LSHIFT  &trans    &trans    &trans  &trans    &trans         &kp A
             >;
         };
 
